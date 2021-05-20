@@ -1,12 +1,24 @@
-<%= @list.name %>
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-    <li>
-      <h2><%= bookmark.movie.title %></h2>
-      <%= image_tag bookmark.movie.poster_url, width: '100px' %>
-      <%= link_to "Delete", bookmark_path(bookmark), method: :delete %>
-    </li>
-  <% end %>
-  <%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
-  <%= link_to "Back to lists", lists_path %>
-</ul>
+<div class="container pt-5">
+  <h1 class="my-5"><%= @list.name %> with style 🍹</h1>
+  <div class="row">
+    <div class="col-9 mt-5">
+      <div class="d-flex align-items-center justify-content-center h-100">
+        <% if @list.bookmarks.empty? %>
+          <h4>Oops, no movies yet...<br>Add one 👉</h4>
+        <% end %>
+        <% @list.bookmarks.each do |bookmark| %>
+          <div class="mx-5 text-center">
+            <%= image_tag bookmark.movie.poster_url, width: '100px' %>
+            <p><%= bookmark.movie.title %></p>
+            <%= link_to "Not cool?", bookmark_path(bookmark), method: :delete, data: { confirm: 'Sure or what?' }, class: "btn btn-outline-light" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-3 mt-5">
+      <h4>Maybe another one?</h4>
+      <%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
+    </div>
+  </div>
+  <%= link_to "Back to lists", lists_path, class: "btn text-light mt-5" %>
+</div>
