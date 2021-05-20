@@ -1,4 +1,6 @@
 <%= simple_form_for list do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
+<div class="form-row align-items-center">
+  <%= f.input :name, input_html: { placeholder: "Your dandy name"}, label: false, wrapper_html: { class: 'm-0'} %>
+  <%= f.submit 'Start', class: "btn btn-dark" %>
+</div>
 <% end %>
