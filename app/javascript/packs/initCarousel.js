@@ -2,7 +2,7 @@ const lerp = (f0, f1, t) => (1 - t) * f0 + t * f1
 const clamp = (val, min, max) => Math.max(min, Math.min(val, max))
 
 class DragScroll {
-  constructor(obj, ) {
+  constructor(obj ) {
     this.$el = document.querySelector(obj.el)
     this.$wrap = this.$el.querySelector(obj.wrap)
     this.$items = this.$el.querySelectorAll(obj.item)
@@ -78,12 +78,12 @@ class DragScroll {
     window.addEventListener('wheel', this.handleWheel)
     //
     this.$el.addEventListener('touchstart', this.handleTouchStart)
-    window.addEventListener('touchmove', this.handleTouchMove)
-    window.addEventListener('touchend', this.handleTouchEnd)
+    this.$el.addEventListener('touchmove', this.handleTouchMove)
+    this.$el.addEventListener('touchend', this.handleTouchEnd)
     //
-    window.addEventListener('mousedown', this.handleTouchStart)
-    window.addEventListener('mousemove', this.handleTouchMove)
-    window.addEventListener('mouseup', this.handleTouchEnd)
+    this.$el.addEventListener('mousedown', this.handleTouchStart)
+    this.$el.addEventListener('mousemove', this.handleTouchMove)
+    this.$el.addEventListener('mouseup', this.handleTouchEnd)
     document.body.addEventListener('mouseleave', this.handleTouchEnd)
   }
   

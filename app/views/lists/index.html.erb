@@ -1,24 +1,26 @@
-<div class="m-5">
+<div class="ml-5 mt-4">
   <h1 class="">Watch with style 🍸</h1>
-  <p class="mb-4">Discover our movie selection</p>
-  <div class="carousel-container">`
-    <div class="carousel">
-      <div class="carousel--wrap">
-      <% @lists.each do |list|  %>
-        <div class="carousel--item">
-          <%= link_to list_path(list) do %>
-          <figure><img src="https://picsum.photos/seed/<%= list.name %>/500/300" alt="" /></figure>
-          <h2><%= list.name %></h2>
-          <% end %>
-        </div>
+  <h4 class="mb-4">Discover our movie selection</h4>
+</div>
+<div class="carousel-container m-1">
+  <div class="carousel">
+    <div class="carousel--wrap">
+    <% @lists.each do |list|  %>
+      <div class="carousel--item">
+        <%= link_to list_path(list) do %>
+        <figure><img src="https://picsum.photos/seed/<%= list.name %>/500/300" alt="" /></figure>
+        <h2><%= list.name %></h2>
         <% end %>
       </div>
-      <div class="carousel--progress d-none">
-        <div class="carousel--progress-bar"></div>
-      </div>
+      <% end %>
+    </div>
+    <div class="carousel--progress d-none">
+      <div class="carousel--progress-bar"></div>
     </div>
   </div>
-  <h2 class="mt-4">Or create your own</h2>
+</div>
+<div class="m-5">
+  <h4 class="mt-4">Or create your own</h4>
   <div class="w-25 mt-3">
     <%= render 'form', list: @list %>
   </div>
