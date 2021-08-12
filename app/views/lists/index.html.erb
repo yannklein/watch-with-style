@@ -5,14 +5,18 @@
 <div class="carousel-container m-1">
   <div class="carousel">
     <div class="carousel--wrap">
-    <% @lists.each do |list|  %>
+    <% @lists.each do |list| %>
       <div class="carousel--item">
         <%= link_to list_path(list) do %>
-        <figure><img src="https://picsum.photos/seed/<%= list.name %>/500/300" alt="" /></figure>
-        <h2><%= list.name %></h2>
+          <% if list.photo.attached? %>
+            <figure><%= cl_image_tag list.photo.key %></figure>
+          <% else %>
+            <figure><img src="<%= "https://picsum.photos/seed/#{list.name}/500/300" %>" alt="" /></figure>
+          <% end %>
+          <h2><%= list.name %></h2>
         <% end %>
       </div>
-      <% end %>
+    <% end %>
     </div>
     <div class="carousel--progress d-none">
       <div class="carousel--progress-bar"></div>
@@ -21,7 +25,7 @@
 </div>
 <div class="m-5">
   <h4 class="mt-4">Or create your own</h4>
-  <div class="w-25 mt-3">
+  <div class="mt-3">
     <%= render 'form', list: @list %>
   </div>
 </div>
