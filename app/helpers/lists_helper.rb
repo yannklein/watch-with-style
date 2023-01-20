@@ -1,2 +1,2 @@
-module ListsHelper
+module WatchWithStyleListsHelper
 end

@@ -43,23 +43,23 @@ ActiveRecord::Schema.define(version: 2021_05_21_055806) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
+  create_table "watch_with_style_bookmarks", force: :cascade do |t|
     t.string "comment"
-    t.bigint "movie_id", null: false
-    t.bigint "list_id", null: false
+    t.bigint "watch_with_style_movie_id", null: false
+    t.bigint "watch_with_style_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["list_id"], name: "index_bookmarks_on_list_id"
-    t.index ["movie_id"], name: "index_bookmarks_on_movie_id"
+    t.index ["watch_with_style_list_id"], name: "index_watch_with_style_bookmarks_on_watch_with_style_list_id"
+    t.index ["watch_with_style_movie_id"], name: "index_watch_with_style_bookmarks_on_watch_with_style_movie_id"
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "watch_with_style_lists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "movies", force: :cascade do |t|
+  create_table "watch_with_style_movies", force: :cascade do |t|
     t.string "title"
     t.string "overview"
     t.string "poster_url"
@@ -70,6 +70,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_055806) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "lists"
-  add_foreign_key "bookmarks", "movies"
+  add_foreign_key "watch_with_style_bookmarks", "watch_with_style_lists"
+  add_foreign_key "watch_with_style_bookmarks", "watch_with_style_movies"
 end

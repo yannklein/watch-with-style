@@ -8,7 +8,7 @@
       <div class="carousel--wrap">
       <% @lists.each do |list| %>
         <div class="carousel--item py-1 px-3">
-          <%= link_to list_path(list) do %>
+          <%= link_to watch_with_style_list_path(list) do %>
             <% if list.photo.attached? %>
               <figure><%= cl_image_tag list.photo.key %></figure>
             <% else %>

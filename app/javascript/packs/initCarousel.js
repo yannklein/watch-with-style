@@ -53,7 +53,7 @@ class DragScroll {
     e.preventDefault()
     this.dragging = true
     this.startX = e.clientX || e.touches[0].clientX
-    this.$el.classList.add('dragging')
+    this.$el.classWatchWithStyleList.add('dragging')
   }
 
   handleTouchMove(e) {
@@ -66,7 +66,7 @@ class DragScroll {
 
   handleTouchEnd() {
     this.dragging = false
-    this.$el.classList.remove('dragging')
+    this.$el.classWatchWithStyleList.remove('dragging')
   }
   
   move() {

@@ -10,7 +10,7 @@
           <div class="mx-5 text-center">
             <%= image_tag bookmark.movie.poster_url, width: '100px' %>
             <p><%= bookmark.movie.title %></p>
-            <%= link_to "Not cool?", bookmark_path(bookmark), method: :delete, data: { confirm: 'Sure or what?' }, class: "btn btn-outline-light" %>
+            <%= link_to "Not cool?", watch_with_style_bookmark_path(bookmark), method: :delete, data: { confirm: 'Sure or what?' }, class: "btn btn-outline-light" %>
           </div>
         <% end %>
       </div>
@@ -20,5 +20,5 @@
       <%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
     </div>
   </div>
-  <%= link_to "Back to lists", lists_path, class: "btn text-light mt-5" %>
+  <%= link_to "Back to lists", watch_with_style_lists_path, class: "btn text-light mt-5" %>
 </div>

@@ -1,2 +1,2 @@
-module BookmarksHelper
+module WatchWithStyleBookmarksHelper
 end
