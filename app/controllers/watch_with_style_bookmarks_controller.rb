@@ -8,7 +8,7 @@ class WatchWithStyleBookmarksController < ApplicationController
     @bookmark = WatchWithStyleBookmark.new(bookmark_params)
     @bookmark.watch_with_style_list = @list
     if @bookmark.save
-      redirect_to watch_with_style_watch_with_style_list_path(@list)
+      redirect_to watch_with_style_list_path(@list)
     else
       render 'watch_with_style_lists/show'
     end
@@ -17,7 +17,7 @@ class WatchWithStyleBookmarksController < ApplicationController
   def destroy
     @bookmark = WatchWithStyleBookmark.find(params[:id])
     @bookmark.delete
-    redirect_to watch_with_style_watch_with_style_list_path(@bookmark.watch_with_style_list)
+    redirect_to watch_with_style_list_path(@bookmark.watch_with_style_list)
   end
 
   private
